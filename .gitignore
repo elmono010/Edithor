@@ -1,4 +1,4 @@
-```
+
 # Dependencies
 node_modules/
 
@@ -54,5 +54,3 @@ Thumbs.db
 
 # Vite specific
 .vite/
-
-```
