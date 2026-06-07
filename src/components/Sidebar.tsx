@@ -29,7 +29,19 @@ import {
   CheckCircle2,
   AlertCircle,
   GitBranch,
-  XCircle
+  XCircle,
+  FileJson,
+  FileType,
+  FileImage,
+  FileVideo,
+  FileAudio,
+  FileText,
+  FileArchive,
+  Terminal,
+  Palette,
+  Braces,
+  Code2,
+  Globe
 } from "lucide-react";
 
 interface SidebarProps {
@@ -565,17 +577,59 @@ export default function Sidebar({
       // Handle simple files
       const gitStatus = gitFileStatuses[node.path];
       let gitColor = "text-neutral-400 group-hover:text-neutral-200";
-      let gitBadge = "";
+      // Determine file icon based on extension
+      const ext = node.name.split(".").pop()?.toLowerCase() || "";
+      let FileIcon = FileCode;
+      let iconColorClass = "text-neutral-400";
       
-      if (isPathIgnored) {
-        gitColor = "text-neutral-600 line-through decoration-neutral-700/60";
-        gitBadge = "I";
-      } else if (gitStatus === "added" || node.name.includes("DESIGN.md") || node.name.includes("README.md")) {
-        gitColor = "text-[#81b88b]";
-        gitBadge = "U";
-      } else if (gitStatus === "modified") {
-        gitColor = "text-[#eed07c]";
-        gitBadge = "M";
+      const codeExtensions = ["js", "jsx", "ts", "tsx", "py", "java", "c", "cpp", "cs", "go", "rs", "php", "rb", "swift", "kt", "scala", "r", "m", "mm", "h", "hpp", "sh", "bash", "zsh", "ps1"];
+      const styleExtensions = ["css", "scss", "sass", "less", "styl", "html", "vue", "svelte"];
+      const jsonExtensions = ["json", "yaml", "yml", "toml", "xml"];
+      const imageExtensions = ["png", "jpg", "jpeg", "gif", "svg", "ico", "webp", "bmp"];
+      const videoExtensions = ["mp4", "webm", "avi", "mov", "mkv"];
+      const audioExtensions = ["mp3", "wav", "ogg", "flac", "aac"];
+      const textExtensions = ["txt", "md", "markdown", "log", "rtf"];
+      const archiveExtensions = ["zip", "tar", "gz", "rar", "7z"];
+      const configExtensions = ["env", "gitignore", "dockerfile", "makefile", "cmakelists", "ini", "cfg", "conf", "properties"];
+      
+      if (codeExtensions.includes(ext)) {
+        FileIcon = Code2;
+        if (ext === "py") iconColorClass = "text-[#3776ab]";
+        else if (["ts", "tsx"].includes(ext)) iconColorClass = "text-[#3178c6]";
+        else if (["js", "jsx"].includes(ext)) iconColorClass = "text-[#f7df1e]";
+        else if (["html", "htm"].includes(ext)) iconColorClass = "text-[#e34c26]";
+        else iconColorClass = "text-blue-400";
+      } else if (styleExtensions.includes(ext)) {
+        FileIcon = Palette;
+        if (ext === "css") iconColorClass = "text-[#563d7c]";
+        else if (["scss", "sass"].includes(ext)) iconColorClass = "text-[#cc6699]";
+        else iconColorClass = "text-pink-400";
+      } else if (jsonExtensions.includes(ext)) {
+        FileIcon = Braces;
+        iconColorClass = "text-yellow-400";
+      } else if (imageExtensions.includes(ext)) {
+        FileIcon = FileImage;
+        iconColorClass = "text-purple-400";
+      } else if (videoExtensions.includes(ext)) {
+        FileIcon = FileVideo;
+        iconColorClass = "text-red-400";
+      } else if (audioExtensions.includes(ext)) {
+        FileIcon = FileAudio;
+        iconColorClass = "text-green-400";
+      } else if (textExtensions.includes(ext)) {
+        FileIcon = FileText;
+        iconColorClass = "text-gray-300";
+      } else if (archiveExtensions.includes(ext)) {
+        FileIcon = FileArchive;
+        iconColorClass = "text-orange-400";
+      } else if (configExtensions.includes(ext) || node.name.startsWith(".") || node.name.toLowerCase().includes("config")) {
+        FileIcon = Settings;
+        iconColorClass = "text-gray-400";
+      } else if (["lock"].includes(ext)) {
+        FileIcon = Key;
+        iconColorClass = "text-yellow-600";
+      } else {
+        FileIcon = FileType;
       }
 
       return (
@@ -592,29 +646,29 @@ export default function Sidebar({
           }`}
         >
           <div className="flex items-center gap-1.5 min-w-0 flex-1 pl-1">
-            <FileCode className={`w-3.5 h-3.5 shrink-0 ${
+            <FileIcon className={`w-3.5 h-3.5 shrink-0 ${
               isSelected 
                 ? "text-neutral-100" 
                 : isPathIgnored
                   ? "text-neutral-600"
-                  : gitColor.includes("#81b88b")
+                  : gitStatus === "added"
                     ? "text-[#81b88b]"
-                    : gitColor.includes("#eed07c")
+                    : gitStatus === "modified"
                       ? "text-[#eed07c]"
-                      : "text-neutral-400"
+                      : iconColorClass
             }`} />
-            <span className={`truncate flex-1 ${isSelected ? "text-white" : gitColor}`}>{node.name}</span>
-            {gitBadge && (
+            <span className={`truncate flex-1 ${isSelected ? "text-white" : isPathIgnored ? "text-neutral-600 line-through decoration-neutral-700/60" : gitStatus === "added" ? "text-[#81b88b]" : gitStatus === "modified" ? "text-[#eed07c]" : "text-neutral-400 group-hover:text-neutral-200"}`}>{node.name}</span>
+            {gitStatus && (
               <span className={`text-[10px] font-bold font-mono px-1 shrink-0 ml-auto mr-1 ${
                 isSelected 
                   ? "text-white opacity-85" 
                   : isPathIgnored
                     ? "text-neutral-600 font-mono"
-                    : gitBadge === "U" 
+                    : gitStatus === "added" 
                       ? "text-[#81b88b]" 
                       : "text-[#eed07c]"
               }`}>
-                {gitBadge}
+                {gitStatus === "added" ? "U" : "M"}
               </span>
             )}
           </div>
