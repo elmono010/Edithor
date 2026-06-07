@@ -6,6 +6,8 @@
 
 This contains everything you need to run your app locally.
 
+**Author:** Julian Posada
+
 View your app in AI Studio: https://ai.studio/apps/2a6a3b80-5481-4372-8368-398204dd3859
 
 ## Run Locally
