@@ -1,8 +1,60 @@
+```
+# Dependencies
 node_modules/
-build/
+
+# Build artifacts
 dist/
-coverage/
-.DS_Store
+build/
+target/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.py.class
+*.py.obj
+*.py.out
+*.py.dll
+*.py.so
+*.py.a
+
+# Virtual environments
+venv/
+.venv/
+env/
+.ENV/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*.tmp
+
+# Logs
 *.log
-.env*
-!.env.example
+
+# Environment
+.env
+.env.local
+*.env.*
+
+# Coverage
+coverage/
+htmlcov/
+.coverage
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Gradle
+.gradle/
+
+# MyPy
+.mypy_cache/
+
+# Pytest
+.pytest_cache/
+```
