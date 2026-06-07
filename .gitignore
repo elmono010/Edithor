@@ -1,1 +1,172 @@
-Nothing should be ignored based on the provided file changes. The only modified file is README.md, which is a source/config file and should not be ignored.
+1	# Compiled and build artifacts
+     2	*.pyc
+     3	__pycache__/
+     4	*.o
+     5	*.obj
+     6	*.exe
+     7	*.dll
+     8	*.so
+     9	*.a
+    10	*.out
+    11	dist/
+    12	build/
+    13	target/
+    14	
+    15	# Dependencies
+    16	.venv/
+    17	venv/
+    18	env/
+    19	ENV/
+    20	node_modules/
+    21	bower_components/
+    22	jspm_packages/
+    23	.mypy_cache/
+    24	.pytest_cache/
+    25	.gradle/
+    26	
+    27	# Python specific
+    28	*.pyo
+    29	*.pyd
+    30	.Python
+    31	pip-log.txt
+    32	pip-delete-this-directory.txt
+    33	
+    34	# Node.js
+    35	npm-debug.log*
+    36	yarn-debug.log*
+    37	yarn-error.log*
+    38	.pnpm-store/
+    39	
+    40	# Logs and temp files
+    41	*.log
+    42	*.tmp
+    43	*.swp
+    44	*.swo
+    45	*.swn
+    46	.editorconfig.tmp
+    47	
+    48	# Environment
+    49	.env
+    50	.env.local
+    51	.env.*.local
+    52	*.env.*
+    53	
+    54	# Editors
+    55	.vscode/
+    56	.idea/
+    57	*.sublime-project
+    58	*.sublime-workspace
+    59	
+    60	# System files
+    61	.DS_Store
+    62	.DS_Store?
+    63	._*
+    64	.Spotlight-V100
+    65	.Trashes
+    66	ehthumbs.db
+    67	Thumbs.db
+    68	
+    69	# Coverage
+    70	coverage/
+    71	htmlcov/
+    72	.coverage
+    73	.coverage.*
+    74	*.coverage
+    75	*.gcda
+    76	*.gcno
+    77	
+    78	# Cache
+    79	.cache/
+    80	.parcel-cache/
+    81	.eslintcache
+    82	.stylelintcache
+    83	
+    84	# Build outputs for various tools
+    85	.grunt
+    86	.gulp
+    87	webpack-stats.json
+    88	sass-cache/
+    89	
+    90	# Java/Kotlin
+    91	*.class
+    92	*.jar
+    93	*.war
+    94	*.ear
+    95	*.nar
+    96	
+    97	# Go
+    98	*.exe
+    99	*.exe~
+   100	*.dll
+   101	*.so
+   102	*.dylib
+   103	*.test
+   104	*.out
+   105	
+   106	# Rust
+   107	Cargo.lock
+   108	**/*.rs.bk
+   109	
+   110	# Ruby
+   111	*.gem
+   112	*.rbc
+   113	.rake_tasks~
+   114	.rvmrc
+   115	.versions.conf
+   116	
+   117	# Rails
+   118	log/
+   119	tmp/
+   120	storage/
+   121	public/system
+   122	bootstrap/cache/
+   123	
+   124	# Unity
+   125	Library/
+   126	Temp/
+   127	Obj/
+   128	Build/
+   129	Logs/
+   130	*.pidb.meta
+   131	*.pdb.meta
+   132	*.meta
+   133	
+   134	# Android
+   135	*.apk
+   136	*.ap_
+   137	bin/
+   138	gen/
+   139	local.properties
+   140	proguard/
+   141	
+   142	# iOS
+   143	*.ipa
+   144	*.dSYM.zip
+   145	build/
+   146	*.xcuserstate
+   147	xcuserdata/
+   148	DerivedData/
+   149	
+   150	# Compressed files
+   151	*.zip
+   152	*.gz
+   153	*.tar
+   154	*.tgz
+   155	*.bz2
+   156	*.xz
+   157	*.7z
+   158	*.rar
+   159	*.zst
+   160	*.lz4
+   161	*.lzh
+   162	*.cab
+   163	*.arj
+   164	*.rpm
+   165	*.deb
+   166	*.Z
+   167	*.lz
+   168	*.lzo
+   169	*.tar.gz
+   170	*.tar.bz2
+   171	*.tar.xz
+   172	*.tar.zst
