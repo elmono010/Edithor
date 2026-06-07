@@ -1,0 +1,6 @@
+{
+  "name": "AI Studio IDE",
+  "description": "An interactive, full-featured AI-assisted IDE with multiple virtual workspaces, live code-sensing, terminal simulator, and multi-provider LLM integrations including Gemini, OpenAI, and Anthropic.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
